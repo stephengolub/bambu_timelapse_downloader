@@ -67,35 +67,40 @@ def ftp_download(
                     fname.rsplit('.', 1)[0] not in downloaded_files
                 }
 
-                if ftp_timelapse_files:
-                    logger.info('Found %d files for download.', len(ftp_timelapse_files))
-                    for fname in ftp_timelapse_files:
-                        filesize = ftp_client.size(fname) or 0
-                        filesize_mb = round(filesize/1024/1024, 2)
-                        download_file_path = download_dir.joinpath(fname)
-                        if filesize == 0:
-                            logger.info('Filesize of file %s is 0, skipping file and continue', fname)
-                            continue
-                        try:
-                            logger.info('Downloading file "%s" size: %d MB', fname, filesize_mb)
-                            with open(download_file_path, 'wb') as fhandle:
-                                ftp_client.retrbinary('RETR %s' % fname, fhandle.write)
-                        except Exception as e:
-                            os.remove(download_file_path)
-                            logger.error('failed to download file %s: %s, continue with next file', fname, e)
-                            continue
-                        else:
-                            if delete_sd_card_files_after_download:
-                                try:
-                                    ftp_client.delete(fname)
-                                except Exception as e:
-                                    logger.error('Failed to delete file after download, continue with next file')
-                                    continue
-                            if convert and fname.endswith('.avi'):
-                                try:
-                                    convert_to_mp4(download_file_path, delete_original=True)
-                                except ConversionError:
-                                    logger.exception("failed to convert file (%s) to mp4", download_file_path)
+                if not ftp_timelapse_files:
+                    logger.info("No new timelapse files found")
+                    sys.exit(0)
+
+                logger.info('Found %d files for download.', len(ftp_timelapse_files))
+                for fname in ftp_timelapse_files:
+                    filesize = ftp_client.size(fname) or 0
+                    download_file_path = download_dir.joinpath(fname)
+                    if filesize == 0:
+                        logger.info('Filesize of file %s is 0, skipping file and continue', fname)
+                        continue
+                    try:
+                        logger.info('Downloading file "%s" size: %d MB', fname, round(filesize/1024 /1024, 2))
+                        with open(download_file_path, 'wb') as fhandle:
+                            ftp_client.retrbinary('RETR %s' % fname, fhandle.write)
+                    except Exception as e:
+                        os.remove(download_file_path)
+                        logger.error('failed to download file %s: %s, continue with next file', fname, e)
+                        continue
+                    else:
+                        if delete_sd_card_files_after_download:
+                            try:
+                                ftp_client.delete(fname)
+                            except Exception as e:
+                                logger.error('Failed to delete file after download, continue with next file')
+                                continue
+                        if convert and fname.endswith('.avi'):
+                            logger.info("Converting %s to mp4", fname)
+                            try:
+                                new_fname = convert_to_mp4(download_file_path, delete_original=True)
+                            except ConversionError:
+                                logger.exception("failed to convert file (%s) to mp4", download_file_path)
+                            else:
+                                logger.info("Conversion complete: %s", new_fname.name)
             except ftplib.error_perm as resp:
                 if str(resp) == "550 No files found":
                     logger.error("No files in this directory")

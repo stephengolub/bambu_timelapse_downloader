@@ -27,7 +27,7 @@ def convert_to_mp4(filename: pathlib.Path | str, delete_original: bool = False) 
             "-c:a",
             "copy",
             str(target_filename)
-        ], check=True)
+        ], check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
         raise ConversionError(filename, e) from None
 
