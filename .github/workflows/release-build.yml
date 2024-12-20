@@ -37,7 +37,7 @@ jobs:
     - name: List files
       run: |
         ls -al .
-        ls -al dist
+        ls -al dist/bambu_timelapse_downloader
     - name: Upload the artifacts
       uses: AButler/upload-release-assets@v3.0
       with:
