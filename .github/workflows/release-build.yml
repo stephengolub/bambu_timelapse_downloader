@@ -1,6 +1,8 @@
 name: Build Binaries
 
 on:
+  push:
+    branches: ["master", "main"]
   release:
     types: [created]
 
@@ -32,6 +34,10 @@ jobs:
       run: poetry install --with=build
     - name: Build Binaries
       run: poetry run build
+    - name: List files
+      run: |
+        ls -al .
+        ls -al dist
     - name: Upload the artifacts
       uses: AButler/upload-release-assets@v3.0
       with:
