@@ -11,6 +11,7 @@ path_to_main = str(HERE / "console.py")
 def install():
     PyInstaller.__main__.run([
         path_to_main,
+        '--one-file',
         '--name',
         get_settings().app_name,
         '--exclude-module',
