@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 
-from .config import get_settings
+from bambu_timelapse_downloader.config import get_settings
 
 
 def setup_logging():

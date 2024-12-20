@@ -8,9 +8,9 @@ from importlib import metadata
 import click
 import click_params as cp
 
-from .ffmpeg import convert_to_mp4, ConversionError
-from .ftp import ImplicitFTP_TLS
-from .logging import setup_logging
+from bambu_timelapse_downloader.ffmpeg import convert_to_mp4, ConversionError
+from bambu_timelapse_downloader.ftp import ImplicitFTP_TLS
+from bambu_timelapse_downloader.logging import setup_logging
 
 
 version = metadata.version('bambu_timelapse_downloader')

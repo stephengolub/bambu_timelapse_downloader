@@ -1,7 +1,7 @@
 import PyInstaller.__main__
 from pathlib import Path
 
-from .config import get_settings
+from bambu_timelapse_downloader.config import get_settings
 
 
 HERE = Path(__file__).parent.absolute()
