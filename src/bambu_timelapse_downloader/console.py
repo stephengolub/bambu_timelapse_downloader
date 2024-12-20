@@ -43,7 +43,7 @@ def ftp_download(
     download_dir.mkdir(exist_ok=True)
 
     # Check pre-existing downloads and remove the suffix for later comparison
-    downloaded_files = {fname.with_suffix('') for fname in download_dir.iterdir() if fname.suffix in ('.avi', '.mp4')}
+    downloaded_files = {fname.with_suffix('').name for fname in download_dir.iterdir() if fname.suffix in ('.avi', '.mp4')}
 
     try:
         logger.info('Connecting to printer %s@%s:%d', user, ip, port)
