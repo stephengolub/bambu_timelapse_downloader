@@ -1,8 +1,6 @@
 name: Build Binaries
 
 on:
-  push:
-    branches: ["master"]
   release:
     types: [created]
 
@@ -31,12 +29,11 @@ jobs:
         path: ./.venv
         key: venv-${{ hashFiles('poetry.lock') }}
     - name: Install Dependencies
-      run: |
-        poetry install --with=build
-        poetry run build
+      run: poetry install --with=build
+    - name: Build Binaries
+      run: poetry run build
     - name: Upload the artifacts
-      uses: skx/github-action-publish-binaries@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: AButler/upload-release-assets@v3.0
       with:
-        args: 'dist/bambu_timelapse_downloader/*'
+        files: 'dist/bambu_timelapse_downloader/*'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
