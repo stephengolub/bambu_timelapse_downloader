@@ -1,6 +1,8 @@
 name: Build Binaries
 
 on:
+  push:
+    branches: ["master"]
   release:
     types: [created]
 
@@ -10,8 +12,8 @@ jobs:
       matrix:
         os:
           - ubuntu-latest
-          - windows-latest
-          - macos-latest
+          # - windows-latest
+          # - macos-latest
 
     runs-on: ${{ matrix.os }}
 
