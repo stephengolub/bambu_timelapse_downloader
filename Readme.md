@@ -18,7 +18,7 @@ A tool to download timelapse files from a Bambu printer.
 | access-code          | Access code shown on printer display. (Can also be specified with --password for backwards compatibility) | Yes      | -         |
 | download-dir         | Download foldername.                                                                                      | No       | timelapse |
 | ftp_timelapse_folder | FTP timelapse folder on ftp.                                                                              | No       | timelapse |
-| convert              | Convert an avi file to an mp4                                                                             | No       | false     |
+| convert              | Convert any avi files downloaded to mp4                                                                   | No       | false     |
 | -d                   | Delete timelapse file after download.                                                                     | No       | -         |
 | -v                   | Show Version                                                                                              | No       | -         |
 
