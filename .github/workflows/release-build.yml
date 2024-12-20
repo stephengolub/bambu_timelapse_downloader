@@ -33,7 +33,7 @@ jobs:
     - name: Install Dependencies
       run: |
         poetry install
-        poetry install --with=build --no-interaction --no-root
+        poetry install --with=build --no-interaction
     - name: Build Binary
       run: poetry run build
     - name: Upload the artifacts
