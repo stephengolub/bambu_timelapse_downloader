@@ -1,16 +1,8 @@
-# This workflow will install Python dependencies, run tests and lint with a single version of Python
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-python
-
-name: Python application
+name: Build Binaries
 
 on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
-permissions:
-  contents: read
+  release:
+    types: [created]
 
 jobs:
   build:
@@ -31,14 +23,13 @@ jobs:
         python-version: "3.11"
     - name: Install Poetry
       uses: snok/install-poetry@v1
-    - name: Install dependencies
+    - name: Setup Project and Build Binary
       run: |
-        poetry install --with=build
-    - name: Build Binary
-      run: poetry run build
-    - name: Store Distribution
-      uses: actions/upload-artifact@v4
+        poetry install --with=build --no-interaction --no-root
+        poetry run build
+    - name: Upload the artifacts
+      uses: skx/github-action-publish-binaries@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: dist-without-markdown
-        path: |
-          dist/bambu_timelapse_downloader
+        args: 'dist/bambu_timelapse_downloader/*'
