@@ -3,6 +3,7 @@ import logging
 import os
 import pathlib
 import sys
+from importlib import metadata
 
 import click
 import click_params as cp
@@ -12,7 +13,7 @@ from .ftp import ImplicitFTP_TLS
 from .logging import setup_logging
 
 
-version = '1.0.0.0'
+version = metadata.version('bambu_timelapse_downloader')
 
 
 @click.command()
