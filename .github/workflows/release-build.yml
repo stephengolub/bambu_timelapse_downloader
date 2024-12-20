@@ -32,10 +32,8 @@ jobs:
         key: venv-${{ hashFiles('poetry.lock') }}
     - name: Install Dependencies
       run: |
-        poetry install
-        poetry install --with=build --no-interaction
-    - name: Build Binary
-      run: poetry run build
+        poetry install --with=build
+        poetry run build
     - name: Upload the artifacts
       uses: skx/github-action-publish-binaries@master
       env:
