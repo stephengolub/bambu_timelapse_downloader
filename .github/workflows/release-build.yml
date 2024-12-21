@@ -31,7 +31,8 @@ jobs:
     - name: Install Dependencies
       run: poetry install --with=build
     - name: Build Binaries
-      run: poetry run build
+      run: >-
+        LDFLAGS="-lsocket" poetry run build
     - name: Upload the artifacts
       uses: AButler/upload-release-assets@v3.0
       with:
