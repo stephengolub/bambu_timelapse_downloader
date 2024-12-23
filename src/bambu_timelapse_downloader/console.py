@@ -40,7 +40,8 @@ def ftp_download(
     logger = setup_logging()
 
     logger.info('Starting bambu timelapse downloader v%s', version)
-    download_dir.mkdir(exist_ok=True)
+    download_dir = pathlib.Path(download_dir)
+    download_dir.mkdir(parents=True, exist_ok=True)
 
     # Check pre-existing downloads and remove the suffix for later comparison
     downloaded_files = {fname.with_suffix('').name for fname in download_dir.iterdir() if fname.suffix in ('.avi', '.mp4')}

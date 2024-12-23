@@ -1,5 +1,6 @@
 import logging
 import os
+import pathlib
 from datetime import datetime
 from logging.handlers import RotatingFileHandler
 
@@ -22,12 +23,12 @@ def setup_logging():
         logger = logging.getLogger(config.logger_name)
     else:
         logger = logging.getLogger()
-    log_directory = config.log_root_directory.joinpath(str(year)).joinpath(str(month))
+    log_directory = pathlib.Path(config.log_root_directory).joinpath(str(year)).joinpath(str(month))
     if not log_directory.exists():
         logger.debug('create log dir %s', log_directory)
         log_directory.mkdir(parents=True, exist_ok=True)
 
-    log_file_path = f'{log_directory}/{log_name}'
+    log_file_path = log_directory.joinpath(log_name)
     logger.debug('add log file handler %s', log_file_path)
     log_file_handler = RotatingFileHandler(filename=log_file_path, mode='a',
                                            maxBytes=config.log.file_max_byte_size,
