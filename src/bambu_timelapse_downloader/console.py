@@ -25,6 +25,7 @@ version = metadata.version('bambu_timelapse_downloader')
 @click.option('--convert/--no-convert', type=bool, default=False, help="Convert the downloaded files to mp4, deleting the original. Requires ffmpeg")
 @click.option('-t', '--ftp-timelapse-folder', type=str, default="timelapse")
 @click.option('-d', '--delete-sd-card-files-after-download', type=bool, default=False)
+@click.option('--console-only-logging', type=bool, default=False)
 @click.version_option(version)
 def ftp_download(
     ip: cp.IP_ADDRESS,
@@ -35,9 +36,10 @@ def ftp_download(
     ftp_timelapse_folder: str,
     convert: bool,
     delete_sd_card_files_after_download: bool,
+    console_only_logging: bool,
 ):
     """Download timelapse files from the specified IP"""
-    logger = setup_logging()
+    logger = setup_logging(console_only_logging)
 
     logger.info('Starting bambu timelapse downloader v%s', version)
     download_dir = pathlib.Path(download_dir)
