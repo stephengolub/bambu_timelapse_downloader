@@ -15,9 +15,7 @@ _ffmpeg_args = {
     "-c:v": "libx264",
     "-crf": "19",
     "-preset": "slow",
-    "-c:a": "libfdk_aac",
-    "-b:a": "192k",
-    "-ac": "2",
+    "-an": "",
 }
 
 
@@ -46,7 +44,7 @@ def convert_to_mp4(
             "ffmpeg",
             "-i",
             str(filename),
-        ] + list(chain.from_iterable(_ffmpeg_args.items())) + [
+        ] + list(filter(bool, chain.from_iterable(_ffmpeg_args.items()))) + [
             str(target_filename)
         ], check=True, capture_output=True)
     except subprocess.CalledProcessError as e:
