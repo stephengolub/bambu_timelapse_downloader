@@ -25,7 +25,8 @@ version = metadata.version('bambu_timelapse_downloader')
 @click.option('--convert/--no-convert', type=bool, default=False, help="Convert the downloaded files to mp4, deleting the original. Requires ffmpeg")
 @click.option('-t', '--ftp-timelapse-folder', type=str, default="timelapse")
 @click.option('-d', '--delete-sd-card-files-after-download', type=bool, default=False)
-@click.option('--console-only-logging', type=bool, default=False)
+@click.option('--console-only-logging/--all-logging', type=bool, default=False)
+@click.option('--dry-run/--execute', type=bool, default=False)
 @click.version_option(version)
 def ftp_download(
     ip: cp.IP_ADDRESS,
@@ -37,6 +38,7 @@ def ftp_download(
     convert: bool,
     delete_sd_card_files_after_download: bool,
     console_only_logging: bool,
+    dry_run: bool,
 ):
     """Download timelapse files from the specified IP"""
     logger = setup_logging(console_only_logging)
@@ -75,6 +77,14 @@ def ftp_download(
                     sys.exit(0)
 
                 logger.info('Found %d files for download.', len(ftp_timelapse_files))
+                if dry_run:
+                    split_token = "\n • "
+                    if downloaded_files:
+                        print(f"Previously Downloaded:{split_token}{split_token.join(downloaded_files)}")
+
+                    print(f"To Download:{split_token}{split_token.join(ftp_timelapse_files)}")
+                    return
+
                 for fname in ftp_timelapse_files:
                     filesize = ftp_client.size(fname) or 0
                     download_file_path = download_dir.joinpath(fname)
