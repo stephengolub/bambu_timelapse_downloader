@@ -17,8 +17,6 @@ COPY poetry.lock ./poetry.lock
 COPY pyproject.toml ./pyproject.toml
 COPY README.md ./README.md
 
-RUN ls -al src
-
 RUN poetry install
 
 ENTRYPOINT ["poetry", "run", "bambu-ftp-download", "--console-only-logging"]

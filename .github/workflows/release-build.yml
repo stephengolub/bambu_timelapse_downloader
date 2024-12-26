@@ -16,6 +16,9 @@ jobs:
           - ubuntu-latest
           - windows-latest
           - macos-latest
+    defaults:
+      run:
+        shell: bash
 
     runs-on: ${{ matrix.os }}
 
@@ -27,20 +30,36 @@ jobs:
         python-version: "3.11"
     - name: Install Poetry
       uses: snok/install-poetry@v1
-    - uses: actions/cache@v3
-      name: Define a cache for the virtual environment based on the dependencies lock file
       with:
-        path: ./.venv
-        key: venv-${{ hashFiles('poetry.lock') }}
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+    - name: Load cached venv
+      id: cached-pip-wheels
+      uses: actions/cache@v4
+      with:
+        path: ~/.cache
+        key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
     - name: Install Dependencies
       run: poetry install --with=build
     - name: Build Binaries
-      run: >-
+      run: |
+        source $VENV
         LDFLAGS="-lsocket" poetry run build
-    - name: Upload the artifacts
+    - name: Rename Artifacts for OS (non-windows)
+      if: ${{ ! contains(matrix.os, 'windows') }}
+      run: |
+        mv dist/bambu_timelapse_downloader dist/bambu-timelapse-downloader-${{ matrix.os }}
+    - name: Upload the artifacts (non-windows)
+      if: ${{ ! contains(matrix.os, 'windows') }}
       uses: AButler/upload-release-assets@v3.0
       with:
-        files: 'dist/bambu_timelapse_downloader'
+        files: 'dist/bambu-timelapse-downloader-${{ matrix.os }}'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Upload the artifacts (windows)
+      if: ${{ contains(matrix.os, 'windows') }}
+      uses: AButler/upload-release-assets@v3.0
+      with:
+        files: 'dist/bambu_timelapse_downloader.exe'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push-image:
@@ -78,3 +97,26 @@ jobs:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
+
+  build-alpine-cli:
+    runs-on: ubuntu-latest
+    needs: build-and-push-image
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}
+      - name: Build Apline CLI in Docker
+        run: |
+          docker build --progress=plain -f alpine.Dockerfile -t bambu-alpine .
+          mkdir -p dist
+          docker run -v "$PWD/dist:/app/dist" bambu-alpine
+          mv dist/bambu_timelapse_downloader dist/bambu-timelapse-downloader-alpine
+      - name: Upload the artifacts
+        uses: AButler/upload-release-assets@v3.0
+        with:
+          files: 'dist/bambu-timelapse-downloader-alpine'
+          repo-token: ${{ secrets.GITHUB_TOKEN }}

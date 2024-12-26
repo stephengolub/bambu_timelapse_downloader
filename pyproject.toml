@@ -19,6 +19,12 @@ optional = true
 [tool.poetry.group.build.dependencies]
 pyinstaller = "*"
 
+[tool.poetry.group.build-alpine]
+optional = true
+
+[tool.poetry.group.build-alpine.dependencies]
+pycrypto = "*"
+
 [tool.poetry.scripts]
 bambu-ftp-download = "bambu_timelapse_downloader.console:ftp_download"
 build = "bambu_timelapse_downloader.pyinstaller:install"
