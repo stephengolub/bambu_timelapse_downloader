@@ -1,16 +1,15 @@
-import PyInstaller.__main__
+import PyInstaller.__main__ as pyinstaller_main
 from pathlib import Path
 
 from bambu_timelapse_downloader.config import get_settings
 
 
-HERE = Path(__file__).parent.absolute()
-path_to_main = str(HERE / "console.py")
+path_to_main = Path(__file__).parent / "console.py"
 
 
 def install():
-    PyInstaller.__main__.run([
-        path_to_main,
+    pyinstaller_main.run([
+        str(path_to_main),
         '--onefile',
         '--name',
         get_settings().app_name,
