@@ -1,5 +1,4 @@
 import ftplib
-import logging
 import os
 import pathlib
 import sys
@@ -20,9 +19,24 @@ version = metadata.version('bambu_timelapse_downloader')
 @click.argument('ip', type=cp.IPV4_ADDRESS, required=True)
 @click.option('--port', type=int, default=990, help="The Port, should not need changed unless Bambu gets creative")
 @click.option('--user', type=str, default="bblp", help="The User, should not need changed unless Bambu get creative")
-@click.option('--access-code', '--password', type=str, help="The Access Code for the printer; found in network settings")
-@click.option('--download-dir', type=click.Path(file_okay=False, dir_okay=True), default=pathlib.Path.cwd().joinpath("timelapse"), help="The directory to save the timelapse files to")
-@click.option('--convert/--no-convert', type=bool, default=False, help="Convert the downloaded files to mp4, deleting the original. Requires ffmpeg")
+@click.option(
+    '--access-code',
+    '--password',
+    type=str,
+    help="The Access Code for the printer; found in network settings",
+)
+@click.option(
+    '--download-dir',
+    type=click.Path(file_okay=False, dir_okay=True),
+    default=pathlib.Path.cwd().joinpath("timelapse"),
+    help="The directory to save the timelapse files to",
+)
+@click.option(
+    '--convert/--no-convert',
+    type=bool,
+    default=False,
+    help="Convert the downloaded files to mp4, deleting the original. Requires ffmpeg",
+)
 @click.option('-t', '--ftp-timelapse-folder', type=str, default="timelapse")
 @click.option('-d', '--delete-sd-card-files-after-download', type=bool, default=False)
 @click.option('--console-only-logging/--all-logging', type=bool, default=False)
@@ -48,7 +62,11 @@ def ftp_download(
     download_dir.mkdir(parents=True, exist_ok=True)
 
     # Check pre-existing downloads and remove the suffix for later comparison
-    downloaded_files = {fname.with_suffix('').name for fname in download_dir.iterdir() if fname.suffix in ('.avi', '.mp4')}
+    downloaded_files = {
+        fname.with_suffix('').name
+        for fname in download_dir.iterdir()
+        if fname.suffix in ('.avi', '.mp4')
+    }
 
     try:
         logger.info('Connecting to printer %s@%s:%d', user, ip, port)
@@ -57,7 +75,7 @@ def ftp_download(
         ftp_client.login(user=user, passwd=access_code)
         ftp_client.prot_p()
         logger.info('Connected.')
-    except Exception as e:
+    except Exception:
         logger.exception('FTP connection failed')
         sys.exit(1)
 
@@ -68,8 +86,9 @@ def ftp_download(
                 logger.info('Looking avi or mp4 files for download.')
                 ftp_timelapse_files = {
                     fname for fname in ftp_client.nlst()
-                    if (fname.endswith('.avi') or fname.endswith('.mp4')) and
-                    fname.rsplit('.', 1)[0] not in downloaded_files
+                    if (
+                        fname.endswith('.avi') or fname.endswith('.mp4')
+                    ) and fname.rsplit('.', 1)[0] not in downloaded_files
                 }
 
                 if not ftp_timelapse_files:
@@ -92,7 +111,11 @@ def ftp_download(
                         logger.info('Filesize of file %s is 0, skipping file and continue', fname)
                         continue
                     try:
-                        logger.info('Downloading file "%s" size: %d MB', fname, round(filesize/1024 /1024, 2))
+                        logger.info(
+                            'Downloading file "%s" size: %d MB',
+                            fname,
+                            round(filesize / 1024 / 1024, 2),
+                        )
                         with open(download_file_path, 'wb') as fhandle:
                             ftp_client.retrbinary('RETR %s' % fname, fhandle.write)
                     except Exception as e:
@@ -103,7 +126,7 @@ def ftp_download(
                         if delete_sd_card_files_after_download:
                             try:
                                 ftp_client.delete(fname)
-                            except Exception as e:
+                            except Exception:
                                 logger.error('Failed to delete file after download, continue with next file')
                                 continue
                         if convert and fname.endswith('.avi'):

@@ -8,7 +8,7 @@ from pydantic_settings import BaseSettings
 
 
 class LoggingConfig(BaseModel):
-    directory: str | pathlib.Path  = "logs"
+    directory: str | pathlib.Path = "logs"
     name: str = ""
     file_max_byte_size: int = 104857
     file_max_backup: int = 3

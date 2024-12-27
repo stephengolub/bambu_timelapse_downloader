@@ -25,6 +25,17 @@ optional = true
 [tool.poetry.group.build-alpine.dependencies]
 pycrypto = "*"
 
+[tool.poetry.group.tests.dependencies]
+pytest-icdiff = "^0.9"
+pytest = "^8.3.4"
+pytest-socket = "^0.7.0"
+flakeheaven = "^3.3.0"
+
+
+[tool.poetry.group.docs.dependencies]
+sphinx-exec-code = "^0.15"
+sphinx = "^8.1.3"
+
 [tool.poetry.scripts]
 bambu-ftp-download = "bambu_timelapse_downloader.console:ftp_download"
 build = "bambu_timelapse_downloader.pyinstaller:install"
@@ -33,8 +44,13 @@ build = "bambu_timelapse_downloader.pyinstaller:install"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.flake8]
+[tool.flakeheaven]
 max-line-length = 120
 
 [tool.black]
 line-length = 120
+
+[tool.pytest.ini_options]
+addopts = [
+    "--disable-socket",
+]

@@ -32,22 +32,22 @@ Due to the codec used to create the `.avi` files on the P1* series of printers, 
 
 #### run with default parameters
 ```powershell
-bambu_timelapse_download.exe --ip 192.168.0.20 --password 12345678
+bambu_timelapse_download.exe 192.168.0.20 --password 12345678
 ```
 
 #### save timelapse file in diffrent directory
 ```powershell
-bambu_timelapse_download.exe --ip 192.168.0.20 --password 12345678 --download_dir "C:\Video\3D Druck\Timelapse"
+bambu_timelapse_download.exe 192.168.0.20 --password 12345678 --download_dir "C:\Video\3D Druck\Timelapse"
 ```
 
 #### save timelapse file in different directory & delete timelapse files from ftp after download
 ```bash
-bambu_timelapse_download --ip 192.168.0.20 --password 12345678 --download_dir "~/timelapse" -d
+bambu_timelapse_download 192.168.0.20 --password 12345678 --download_dir "~/timelapse" -d
 ```
 
 #### save timelapse file and convert
 ```bash
-bambu_timelapse_download --ip 192.168.0.20 --password 12345678 --download_dir "~/timelapse" --convert
+bambu_timelapse_download 192.168.0.20 --password 12345678 --download_dir "~/timelapse" --convert
 ```
 
 ### Using Docker Image

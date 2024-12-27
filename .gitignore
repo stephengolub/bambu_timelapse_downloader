@@ -1,6 +1,8 @@
-/dist/
+/dist*
 /build/
 /timelapse/
 /logs/
 /venv/
 /bambu_timelapse_downloader.spec
+
+.flakeheaven_cache/
