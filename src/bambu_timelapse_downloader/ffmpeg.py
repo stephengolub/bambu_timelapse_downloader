@@ -23,7 +23,7 @@ def convert_to_mp4(
     filename: pathlib.Path | str,
     delete_original: bool = False,
     force_convert: bool = False,
-) -> pathlib.Path :
+) -> pathlib.Path:
     """Convert the file to an mp4 file using ffmpeg.
 
     Args:

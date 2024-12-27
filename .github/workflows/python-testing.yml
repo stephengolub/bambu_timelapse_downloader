@@ -36,7 +36,7 @@ jobs:
       run: poetry install --with=tests
     - name: Lint with flake8
       run: |
-        poetry run flakeheaven lint
+        poetry run flakeheaven lint src/
     - name: Test with pytest
       run: |
         poetry run pytest
