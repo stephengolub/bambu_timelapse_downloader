@@ -33,7 +33,7 @@ jobs:
         path: ~/.cache
         key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
     - name: Install Dependencies
-      run: poetry install --with=tests
+      run: poetry install --with=tests,build
     - name: Lint with flake8
       run: |
         poetry run flakeheaven lint src/
