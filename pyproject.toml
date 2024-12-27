@@ -29,6 +29,7 @@ pycrypto = "*"
 pytest-icdiff = "^0.9"
 pytest = "^8.3.4"
 pytest-socket = "^0.7.0"
+flakeheaven = "^3.3.0"
 
 
 [tool.poetry.group.docs.dependencies]
@@ -43,7 +44,7 @@ build = "bambu_timelapse_downloader.pyinstaller:install"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.flake8]
+[tool.flakeheaven]
 max-line-length = 120
 
 [tool.black]
