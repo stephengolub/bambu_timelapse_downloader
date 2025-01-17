@@ -53,5 +53,5 @@ bambu_timelapse_download 192.168.0.20 --password 12345678 --download_dir "~/time
 ### Using Docker Image
 
 ```bash
-docker run -v "/path/to/timelapse-folder:/app/timelapse" ghcr.io/stephengolub6/bambu-timelapse-download 192.168.0.20 --access-code 12345678 --convert
+docker run -v "/path/to/timelapse-folder:/app/timelapse" ghcr.io/stephengolub/bambu_timelapse_downloader 192.168.0.20 --access-code 12345678 --convert
 ```
