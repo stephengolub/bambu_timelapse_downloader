@@ -1,0 +1,127 @@
+[20250129 10:36:37:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 10:36:37:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.4.114:990
+[20250129 10:36:43:__init__.py:75:bambu_timelapse_downloader.cli()] ERROR FTP connection failed
+Traceback (most recent call last):
+  File "/Users/sgolub/code/bambu_timelapse_downloader/src/bambu_timelapse_downloader/console/__init__.py", line 70, in cli
+    ftp_client.connect(host=str(ip), port=port)
+  File "/Users/sgolub/.asdf/installs/python/3.11.11/lib/python3.11/ftplib.py", line 158, in connect
+    self.sock = socket.create_connection((self.host, self.port), self.timeout,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sgolub/.asdf/installs/python/3.11.11/lib/python3.11/socket.py", line 863, in create_connection
+    raise exceptions[0]
+  File "/Users/sgolub/.asdf/installs/python/3.11.11/lib/python3.11/socket.py", line 848, in create_connection
+    sock.connect(sa)
+OSError: [Errno 51] Network is unreachable
+[20250129 10:37:33:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 10:37:33:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 10:37:34:__init__.py:73:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 10:53:48:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 10:53:48:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 10:53:49:__init__.py:73:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:19:49:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:19:49:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:19:50:__init__.py:73:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:27:13:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:27:13:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:27:20:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:27:20:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:27:20:__init__.py:73:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:27:42:__init__.py:57:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:27:42:__init__.py:68:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:27:43:__init__.py:73:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:38:41:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:38:41:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:38:42:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:38:49:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:38:49:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:38:49:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:42:00:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:42:00:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:42:01:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:42:52:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:42:52:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:42:52:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:44:00:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:44:00:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:44:01:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:44:46:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:44:46:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:44:46:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:45:22:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:45:22:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:45:23:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:46:03:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:46:03:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:46:04:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:47:17:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:47:17:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:47:17:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:47:35:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:47:35:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:47:36:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:48:32:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:48:32:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:48:33:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:55:10:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:55:10:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:55:11:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:55:25:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:55:25:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:55:26:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:56:12:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:56:12:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:56:12:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 13:57:23:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 13:57:23:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 13:57:24:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:22:33:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:22:33:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:22:34:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:23:34:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:23:34:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:23:35:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:24:19:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:24:19:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:24:19:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:25:18:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:25:18:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:25:19:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:26:30:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:26:30:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:26:31:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:27:09:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:27:09:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:27:10:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:27:35:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:27:35:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:27:36:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:36:49:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:36:49:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:36:50:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:36:57:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:36:57:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:36:58:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:38:53:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:38:53:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:38:54:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:40:46:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:40:46:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:40:47:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:42:41:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:42:41:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:42:41:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:49:05:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:49:05:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:49:06:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:49:49:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:49:49:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:49:50:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:53:07:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:53:07:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:53:08:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 16:54:13:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 16:54:13:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 16:54:14:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.
+[20250129 17:03:53:__init__.py:69:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250129 17:03:53:__init__.py:80:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250129 17:03:54:__init__.py:85:bambu_timelapse_downloader.cli()] INFO Connected.

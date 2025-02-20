@@ -1,0 +1,3 @@
+[20250125 13:12:27:console.py:59:bambu_timelapse_downloader.cli()] INFO Starting bambu timelapse downloader v1.1.0
+[20250125 13:12:27:console.py:69:bambu_timelapse_downloader.cli()] INFO Connecting to printer bblp@192.168.6.113:990
+[20250125 13:12:28:console.py:74:bambu_timelapse_downloader.cli()] INFO Connected.
